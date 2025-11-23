@@ -20,7 +20,14 @@ nulls, and 'unit' for the second column with nulls.
 The `||` values concatenate the columns into strings. 
 Edit the appropriate columns -- you're making two edits -- and the NULL rows will be fixed. 
 All the other rows will remain the same. */
+SELECT */
+,replace NULL product_name WITH 'blank'
+,coalesce (product_name'') || ', ' || 
+,reolace NULL product_size WITH 'unit'
+,coalesce (product_size, 'unit') || ', ' || 
+,leave quantity_type untouched; product_qty_type || ', ' || as FULL product_description
 
+FROM product /*
 
 
 
@@ -33,6 +40,9 @@ You can either display all rows in the customer_purchases table, with the counte
 each new market date for each customer, or select only the unique market dates per customer 
 (without purchase details) and number those visits. 
 HINT: One of these approaches uses ROW_NUMBER() and one uses DENSE_RANK(). */
+
+
+
 
 
 
@@ -129,7 +139,3 @@ Third, SET current_quantity = (...your select statement...), remembering that WH
 Finally, make sure you have a WHERE statement to update the right row, 
 	you'll need to use product_units.product_id to refer to the correct row within the product_units table. 
 When you have all of these components, you can run the update statement. */
-
-
-
-
